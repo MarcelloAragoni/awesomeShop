@@ -7,3 +7,27 @@ export const sortParams = {
   _sort: DEFAULT_SORT,
   _order: DEFAULT_SORT_ORDER,
 };
+
+export const CategoriesFilterOptions = [
+  {
+    name: "books",
+  },
+  {
+    name: "food",
+  },
+  {
+    name: "games",
+  },
+];
+
+export const PriceFilterOptions = [
+  {
+    name: "10-20",
+  },
+  {
+    name: "20-30",
+  },
+  {
+    name: "30-40",
+  },
+];

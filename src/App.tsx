@@ -1,7 +1,16 @@
 import "./App.css";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
-  return <></>;
+  async function handleGetInvoiceList(filterParams: any) {
+    console.log(filterParams);
+  }
+
+  return (
+    <>
+      <SearchBar onSubmit={handleGetInvoiceList} />
+    </>
+  );
 }
 
 export default App;
