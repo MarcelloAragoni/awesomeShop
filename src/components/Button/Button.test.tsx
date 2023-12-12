@@ -7,7 +7,7 @@ describe("Button", () => {
     const onClickMock = vi.fn();
     render(<Button onAdd={onClickMock}>Add</Button>);
 
-    expect(await screen.findByRole("button", { name: /add/i })).toBeVisible;
+    expect(await screen.findByRole("button", { name: /add/i })).toBeVisible();
   });
 
   it("Calls Back a function", async () => {
