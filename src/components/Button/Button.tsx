@@ -1,8 +1,5 @@
-type Props = {
-  children: string;
-  onAdd: () => {};
-};
+import { ButtonProps } from "./types";
 
-export function Button({ children, onAdd }: Props) {
-  return <button onClick={onAdd}>{children}</button>;
+export default function Button({ children, onClick }: ButtonProps) {
+  return <button onClick={onClick}>{children}</button>;
 }
