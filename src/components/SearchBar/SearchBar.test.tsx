@@ -19,5 +19,6 @@ describe("Search Bar", () => {
     );
 
     expect(mockFormSubmit).toBeCalled();
+    expect(mockFormSubmit).toHaveBeenCalledWith("_sort=name&_order=DESC");
   });
 });

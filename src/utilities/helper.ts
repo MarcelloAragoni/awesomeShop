@@ -19,6 +19,6 @@ export function formatQueryParams(params: Args) {
       urlParams.delete(filter.name);
     }
   });
-  console.log(urlParams);
-  return urlParams;
+  console.log(urlParams.toString());
+  return urlParams.toString();
 }

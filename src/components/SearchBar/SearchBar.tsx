@@ -4,7 +4,7 @@ import Input from "../Input/Input";
 import Button from "../Button/Button.tsx";
 
 type Props = {
-  onSubmit: (urlParams: URLSearchParams) => void;
+  onSubmit: (urlParams: string) => void;
 };
 
 export default function SearchBar({ onSubmit }: Props) {
