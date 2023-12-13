@@ -8,6 +8,9 @@ describe("Search Bar", () => {
     render(<SearchBar onSubmit={mockFormSubmit}></SearchBar>);
 
     expect(await screen.findByLabelText(/SearchBar/i)).toBeVisible();
+    expect(
+      await screen.findByRole("button", { name: /Search/i }),
+    ).toBeVisible();
   });
 
   it("changes the URLParams", async () => {
