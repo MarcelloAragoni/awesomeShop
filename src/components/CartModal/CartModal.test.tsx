@@ -2,7 +2,7 @@ import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import CartModal from "./CartModal";
 
-describe("Modal", () => {
+describe("Cart Modal", () => {
   it("renders the modal", () => {
     render(<CartModal />);
 
