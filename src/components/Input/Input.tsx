@@ -1,8 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
-
 type Props = {
   value: string;
-  onChange: Dispatch<SetStateAction<string>>;
+  onChange: (value: string) => void;
 };
 
 export default function Input({ value, onChange }: Props) {
