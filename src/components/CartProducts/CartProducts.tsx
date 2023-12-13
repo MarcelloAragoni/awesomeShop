@@ -1,29 +1,25 @@
+// import { useState } from "react";
+import { useCartProducts } from "../../utilities/CartProvider";
 import Button from "../Button/Button";
+import QuantityChanger from "../QuantityChanger/QuantityChanger";
 
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  category: string;
-  image: string;
-};
+export default function CartProducts() {
+  const { cart } = useCartProducts();
+  // const [quantity, setQuantity] = useState(1);
 
-type Props = {
-  products: Product[];
-};
-
-export default function CartProducts({ products }: Props) {
   function handleDelete() {
     console.log("delete");
   }
+  console.log(cart);
 
   return (
     <ul aria-label="Cart List">
-      {products.map((product) => (
-        <li aria-label="Cart Product">
+      {cart.map((product) => (
+        <li key={product.id} aria-label="Cart Product">
           <img src={product.image} alt="" />
           <p>{product.name}</p>
           <span>{product.price}</span>
+          <QuantityChanger value={product.quantity} />
           <Button type="button" onClick={handleDelete}>
             Remove
           </Button>

@@ -34,7 +34,7 @@ const Products = [
 
 describe("Cart Products", () => {
   it("renders the product in the cart", async () => {
-    render(<CartProducts products={Products} />);
+    render(<CartProducts />);
 
     expect(await screen.findByLabelText(/Cart List/i)).toBeVisible();
     expect(await screen.findAllByLabelText("Cart Product")).toHaveLength(4);

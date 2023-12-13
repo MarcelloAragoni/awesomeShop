@@ -1,4 +1,3 @@
-import { Products } from "../../utilities/consts";
 import CartProducts from "../CartProducts/CartProducts";
 
 type Props = {
@@ -11,7 +10,7 @@ export default function CartModal({ onClose }: Props) {
       <h1>Cart</h1>
 
       <div>
-        <CartProducts products={Products}></CartProducts>
+        <CartProducts />
       </div>
 
       <button onClick={onClose}>Close</button>

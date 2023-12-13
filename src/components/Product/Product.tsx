@@ -1,3 +1,4 @@
+import { useCartProducts } from "../../utilities/CartProvider";
 import Button from "../Button/Button";
 
 type Product = {
@@ -13,10 +14,10 @@ type Props = {
 };
 
 export default function Product({ product }: Props) {
-  function handleAddButton(product: Product) {
-    const addCartProduct = product;
+  const cartContext = useCartProducts();
 
-    console.log(addCartProduct);
+  function handleAddButton(product: Product) {
+    cartContext.addProduct(product);
   }
 
   return (
