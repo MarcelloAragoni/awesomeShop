@@ -1,14 +1,7 @@
 import "./App.css";
-import Product from "./components/Product/Product";
+import ProductGrid from "./components/ProductGrid/ProductGrid";
 import SearchBar from "./components/SearchBar/SearchBar";
-
-const Products = {
-  id: 1,
-  name: "Whispers of Eternity",
-  price: 20.0,
-  category: "fiction",
-  image: "https://source.unsplash.com/random/800x600",
-};
+import { Products } from "./utilities/consts";
 
 function App() {
   async function handleGetInvoiceList(filterParams: any) {
@@ -18,7 +11,7 @@ function App() {
   return (
     <>
       <SearchBar onSubmit={handleGetInvoiceList} />
-      <Product product={Products} />
+      <ProductGrid products={Products} />
     </>
   );
 }
