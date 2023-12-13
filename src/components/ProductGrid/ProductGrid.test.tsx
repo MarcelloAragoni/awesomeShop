@@ -1,38 +1,7 @@
-export const BASE_URL = "http://localhost:8000/products";
+import { render, screen } from "@testing-library/react";
+import ProductGrid from "./ProductGrid";
 
-export const DEFAULT_SORT = "name";
-export const DEFAULT_SORT_ORDER = "DESC";
-
-export const sortParams = {
-  _sort: DEFAULT_SORT,
-  _order: DEFAULT_SORT_ORDER,
-};
-
-export const CategoriesFilterOptions = [
-  {
-    name: "books",
-  },
-  {
-    name: "food",
-  },
-  {
-    name: "games",
-  },
-];
-
-export const PriceFilterOptions = [
-  {
-    name: "10-20",
-  },
-  {
-    name: "20-30",
-  },
-  {
-    name: "30-40",
-  },
-];
-
-export const Products = [
+const Products = [
   {
     id: 1,
     name: "Whispers of Eternity",
@@ -62,3 +31,12 @@ export const Products = [
     image: "https://source.unsplash.com/random/800x600",
   },
 ];
+
+describe("Product Grid", () => {
+  it("renders the product Grid", async () => {
+    render(<ProductGrid products={Products} />);
+
+    expect(await screen.findByLabelText(/Product Grid/i)).toBeVisible();
+    expect(await screen.findAllByLabelText("Product")).toHaveLength(4);
+  });
+});
