@@ -32,8 +32,8 @@ const Products = [
   },
 ];
 
-describe("Product Grid", () => {
-  it("renders the product Grid", async () => {
+describe("Cart Products", () => {
+  it("renders the product in the cart", async () => {
     render(<CartProducts products={Products} />);
 
     expect(await screen.findByLabelText(/Cart List/i)).toBeVisible();
