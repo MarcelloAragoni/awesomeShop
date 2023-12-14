@@ -14,6 +14,7 @@ type ButtonPropsVariable = ButtonSubmit | DefaultButton;
 
 type Props = {
   children: string;
+  testid?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = Props & ButtonPropsVariable;

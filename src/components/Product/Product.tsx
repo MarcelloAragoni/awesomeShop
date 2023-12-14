@@ -1,3 +1,4 @@
+import { useCartProducts } from "../../utilities/CartProvider";
 import Button from "../Button/Button";
 
 type Product = {
@@ -13,10 +14,10 @@ type Props = {
 };
 
 export default function Product({ product }: Props) {
-  function handleAddButton(product: Product) {
-    const addCartProduct = product;
+  const cartContext = useCartProducts();
 
-    console.log(addCartProduct);
+  function handleAddButton(product: Product) {
+    cartContext.addProduct(product);
   }
 
   return (
@@ -27,7 +28,11 @@ export default function Product({ product }: Props) {
         <div>
           <p>{product.name}</p>
           <span>{product.price}</span>
-          <Button type="button" onClick={() => handleAddButton(product)}>
+          <Button
+            testid={"new product " + product.id}
+            type="button"
+            onClick={() => handleAddButton(product)}
+          >
             Add
           </Button>
         </div>

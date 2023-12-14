@@ -1,29 +1,31 @@
-import { useState } from "react";
+import { CartProduct, useCartProducts } from "../../utilities/CartProvider";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 
-export default function QuantityChanger() {
-  const [amountValue, setAmount] = useState(0);
+type Props = {
+  product: CartProduct;
+};
 
-  function handleButtonPlusClick() {
-    setAmount(amountValue + 1);
-  }
-
-  function handleButtonMinusClick() {
-    setAmount(amountValue - 1);
-  }
-
-  function handleChangeInput(value: string) {
-    setAmount(Number(value));
-  }
+export default function QuantityChanger({ product }: Props) {
+  const { addQuantity, removeQuantity } = useCartProducts();
 
   return (
     <div aria-label="QuantityChanger">
-      <Button aria-label="minus" type="button" onClick={handleButtonMinusClick}>
+      <Button
+        testid={"remove " + product.id}
+        aria-label="minus"
+        type="button"
+        onClick={() => removeQuantity(product)}
+      >
         -
       </Button>
-      <Input placeholder="0" value={amountValue} onChange={handleChangeInput} />
-      <Button aria-label="plus" type="button" onClick={handleButtonPlusClick}>
+      <Input placeholder="1" value={product.quantity} onChange={() => {}} />
+      <Button
+        testid={"Add " + product.id}
+        aria-label="plus"
+        type="button"
+        onClick={() => addQuantity(product)}
+      >
         +
       </Button>
     </div>
