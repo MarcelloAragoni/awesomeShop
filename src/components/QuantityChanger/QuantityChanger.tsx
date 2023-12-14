@@ -1,6 +1,7 @@
 import { CartProduct, useCartProducts } from "../../utilities/CartProvider";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
+import * as S from "./QuantityChanger.styled";
 
 type Props = {
   product: CartProduct;
@@ -10,7 +11,7 @@ export default function QuantityChanger({ product }: Props) {
   const { addQuantity, removeQuantity } = useCartProducts();
 
   return (
-    <div aria-label="QuantityChanger">
+    <S.QuantityChanger aria-label="QuantityChanger">
       <Button
         testid={"remove " + product.id}
         aria-label="minus"
@@ -28,6 +29,6 @@ export default function QuantityChanger({ product }: Props) {
       >
         +
       </Button>
-    </div>
+    </S.QuantityChanger>
   );
 }

@@ -7,6 +7,7 @@ import {
   CategoriesFilterOptions,
   PriceFilterOptions,
 } from "../../utilities/consts.ts";
+import * as S from "./SearchBar.styled.ts";
 
 type Props = {
   onSubmit: (urlParams: string) => void;
@@ -58,8 +59,8 @@ export default function SearchBar({ onSubmit }: Props) {
   }
 
   return (
-    <label>
-      <form onSubmit={handleSubmit}>
+    <S.SearchBarContainer aria-label="SearchBar">
+      <S.SearchBar onSubmit={handleSubmit}>
         <Input onChange={setSearchValue} value={searchValue} />
         <SelectInput
           onSelect={handleCategorySelect}
@@ -72,8 +73,7 @@ export default function SearchBar({ onSubmit }: Props) {
           label="Price Range"
         />
         <Button type="submit">Search</Button>
-      </form>
-      SearchBar
-    </label>
+      </S.SearchBar>
+    </S.SearchBarContainer>
   );
 }

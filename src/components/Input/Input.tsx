@@ -1,3 +1,5 @@
+import * as S from "./Input.styled";
+
 type Props = {
   value: string | number;
   onChange: (value: string) => void;
@@ -10,14 +12,13 @@ export default function Input({ value, onChange, placeholder }: Props) {
   }
 
   return (
-    <label>
+    <S.InputContainer aria-label="input">
       <input
         placeholder={placeholder}
-        id="input"
+        data-testid="input"
         value={value}
         onChange={handleChange}
       />
-      input
-    </label>
+    </S.InputContainer>
   );
 }

@@ -16,8 +16,7 @@ export default function SelectInput({ label, options, onSelect }: Props) {
   }
 
   return (
-    <label>
-      {label}
+    <div aria-label={label}>
       <select name="selectedCategorie" onChange={handleSelectEvent}>
         <option disabled selected>
           Select Filter
@@ -28,6 +27,6 @@ export default function SelectInput({ label, options, onSelect }: Props) {
           </option>
         ))}
       </select>
-    </label>
+    </div>
   );
 }

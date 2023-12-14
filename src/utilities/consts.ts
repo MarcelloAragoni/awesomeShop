@@ -25,28 +25,19 @@ export const CategoriesFilterOptions = [
 
 export const PriceFilterOptions = [
   {
+    name: "10",
+  },
+  {
     name: "20",
   },
   {
-    name: "25.5",
+    name: "30",
   },
   {
-    name: "32",
+    name: "40",
   },
   {
-    name: "45.99",
-  },
-  {
-    name: "79.99",
-  },
-  {
-    name: "99.99",
-  },
-  {
-    name: "120",
-  },
-  {
-    name: "200",
+    name: "50",
   },
 ];
 

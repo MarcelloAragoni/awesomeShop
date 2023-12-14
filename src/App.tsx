@@ -1,4 +1,3 @@
-import "./App.css";
 import { useEffect, useState } from "react";
 import Button from "./components/Button/Button";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
@@ -8,6 +7,8 @@ import { CartProvider } from "./utilities/CartProvider";
 import { getProducts } from "./services/products";
 import { BASE_URL } from "./utilities/consts";
 import Pagination from "./components/Pagination/Pagination";
+import "../reset.css";
+import * as S from "./App.Styled";
 
 function App() {
   const [modal, setModal] = useState(false);
@@ -48,21 +49,23 @@ function App() {
 
   return (
     <CartProvider>
-      <div>
-        <Button testid="cartButton" onClick={handleChange} type="button">
-          Cart
-        </Button>
-        {modal && <CartModal onClose={handleChange} />}
-        <SearchBar onSubmit={handleGetProductList} />
-      </div>
-      <div>
-        <ProductGrid products={products} />
-        <Pagination
-          onPageUp={handlePageUp}
-          onPageDown={handlePageDown}
-          value={pageNumber}
-        />
-      </div>
+      <S.AppContainer>
+        <S.NavBar>
+          <Button testid="cartButton" onClick={handleChange} type="button">
+            Cart
+          </Button>
+          {modal && <CartModal onClose={handleChange} />}
+          <SearchBar onSubmit={handleGetProductList} />
+        </S.NavBar>
+        <S.ProductsContainer>
+          <ProductGrid products={products} />
+          <Pagination
+            onPageUp={handlePageUp}
+            onPageDown={handlePageDown}
+            value={pageNumber}
+          />
+        </S.ProductsContainer>
+      </S.AppContainer>
     </CartProvider>
   );
 }

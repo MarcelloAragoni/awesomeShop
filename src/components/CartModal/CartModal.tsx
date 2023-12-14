@@ -1,4 +1,5 @@
 import CartProducts from "../CartProducts/CartProducts";
+import * as S from "./CartModal.styled";
 
 type Props = {
   onClose?: () => void;
@@ -6,14 +7,17 @@ type Props = {
 
 export default function CartModal({ onClose }: Props) {
   return (
-    <div role="dialog">
+    <S.ModalBox role="dialog">
       <h1>Cart</h1>
 
-      <div>
+      <S.ModalContent>
         <CartProducts />
-      </div>
+      </S.ModalContent>
 
-      <button onClick={onClose}>Close</button>
-    </div>
+      <button className="CloseButton" onClick={onClose}>
+        Close
+      </button>
+      <S.ModalLayer tabIndex={-1} aria-hidden="true"></S.ModalLayer>
+    </S.ModalBox>
   );
 }

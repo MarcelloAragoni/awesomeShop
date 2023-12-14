@@ -1,4 +1,5 @@
 import Button from "../Button/Button";
+import * as S from "./Pagination.styled";
 
 type Props = {
   value: number;
@@ -16,7 +17,7 @@ export default function Pagination({ value, onPageUp, onPageDown }: Props) {
   }
 
   return (
-    <div aria-label="Pagination">
+    <S.PaginationContainer aria-label="Pagination">
       <Button onClick={() => handlePageDown(value)} type="button">
         -
       </Button>
@@ -24,6 +25,6 @@ export default function Pagination({ value, onPageUp, onPageDown }: Props) {
       <Button onClick={() => handlePageUp(value)} type="button">
         +
       </Button>
-    </div>
+    </S.PaginationContainer>
   );
 }
