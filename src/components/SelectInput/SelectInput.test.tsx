@@ -24,7 +24,7 @@ describe("Select Input", () => {
     );
 
     expect(await screen.findByLabelText("Categories")).toBeVisible();
-    expect(await screen.findAllByRole("option")).toHaveLength(3);
+    expect(await screen.findAllByRole("option")).toHaveLength(4);
   });
 
   it("renders all the options", async () => {

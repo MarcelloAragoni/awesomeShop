@@ -15,7 +15,7 @@ const products = [
   {
     id: 2,
     name: "Chronicles of the Silver Serpent",
-    price: 45.99,
+    price: 20.0,
     category: "fiction",
     image: "https://source.unsplash.com/random/800x600",
     quantity: 1,
@@ -23,7 +23,7 @@ const products = [
   {
     id: 3,
     name: "The Enigma of Nebula's Veil",
-    price: 32.0,
+    price: 30.0,
     category: "fiction",
     image: "https://source.unsplash.com/random/800x600",
     quantity: 1,
@@ -31,7 +31,7 @@ const products = [
   {
     id: 4,
     name: "Echoes in the Shadows",
-    price: 99.99,
+    price: 100.0,
     category: "fiction",
     image: "https://source.unsplash.com/random/800x600",
     quantity: 1,
@@ -79,5 +79,19 @@ describe("Cart Products", () => {
     expect(await screen.findAllByRole("listitem")).toHaveLength(4);
     await userEvent.click(await screen.findByTestId("delete 1"));
     expect(await screen.findAllByRole("listitem")).toHaveLength(3);
+  });
+
+  it("Brings total result", async () => {
+    localStorage.setItem("cart", JSON.stringify(products));
+
+    render(
+      <CartProvider>
+        <CartProducts />
+      </CartProvider>,
+    );
+
+    expect(await screen.findByText("Total: 190")).toBeInTheDocument();
+    await userEvent.click(await screen.findByTestId("Add 1"));
+    expect(await screen.findByText("Total: 210")).toBeInTheDocument();
   });
 });
