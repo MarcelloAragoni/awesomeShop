@@ -16,7 +16,9 @@ type CartProductsType = {
 export const CartContext = createContext({} as CartProductsType);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<CartProduct[]>([]);
+  const localCart = localStorage.getItem("cart");
+  const localCartParsed: CartProduct[] = localCart && JSON.parse(localCart);
+  const [cart, setCart] = useState<CartProduct[]>(localCartParsed || []);
 
   function addProduct(product: Product) {
     const updatedCart = [...cart];
@@ -29,6 +31,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
 
     setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   }
 
   function removeProduct(product: Product) {
@@ -37,6 +40,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     updatedCart.splice(itemIndex, 1);
     setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   }
 
   function addQuantity(product: Product) {
@@ -46,6 +50,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     updatedCart[itemIndex].quantity++;
 
     setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   }
 
   function removeQuantity(product: Product) {
@@ -59,6 +64,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
 
     setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   }
 
   return (

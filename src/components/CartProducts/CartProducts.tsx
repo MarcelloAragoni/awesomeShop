@@ -7,8 +7,6 @@ export default function CartProducts() {
   const { cart, removeProduct } = useCartProducts();
   // const [quantity, setQuantity] = useState(1);
 
-  console.log(cart);
-
   return (
     <ul aria-label="Cart List">
       {cart.map((product) => (

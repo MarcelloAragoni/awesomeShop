@@ -1,13 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import CartProducts from "./CartProducts";
+import { CartProvider } from "../../utilities/CartProvider";
 
-const Products = [
+export const products = [
   {
     id: 1,
     name: "Whispers of Eternity",
     price: 20.0,
     category: "fiction",
     image: "https://source.unsplash.com/random/800x600",
+    quantity: 1,
   },
   {
     id: 2,
@@ -15,6 +17,7 @@ const Products = [
     price: 45.99,
     category: "fiction",
     image: "https://source.unsplash.com/random/800x600",
+    quantity: 1,
   },
   {
     id: 3,
@@ -22,6 +25,7 @@ const Products = [
     price: 32.0,
     category: "fiction",
     image: "https://source.unsplash.com/random/800x600",
+    quantity: 1,
   },
   {
     id: 4,
@@ -29,12 +33,19 @@ const Products = [
     price: 99.99,
     category: "fiction",
     image: "https://source.unsplash.com/random/800x600",
+    quantity: 1,
   },
 ];
 
 describe("Cart Products", () => {
   it("renders the product in the cart", async () => {
-    render(<CartProducts />);
+    localStorage.setItem("cart", JSON.stringify(products));
+
+    render(
+      <CartProvider>
+        <CartProducts />
+      </CartProvider>,
+    );
 
     expect(await screen.findByLabelText(/Cart List/i)).toBeVisible();
     expect(await screen.findAllByLabelText("Cart Product")).toHaveLength(4);

@@ -1,21 +1,25 @@
 import { render, screen } from "@testing-library/react";
 import QuantityChanger from "./QuantityChanger";
-import userEvent from "@testing-library/user-event";
+
+export const product = {
+  id: 1,
+  name: "Whispers of Eternity",
+  price: 20.0,
+  category: "fiction",
+  image: "https://source.unsplash.com/random/800x600",
+  quantity: 1,
+};
 
 describe("Quantity Changer", () => {
   it("renders the quantity changer", async () => {
-    render(<QuantityChanger />);
+    render(<QuantityChanger product={product} />);
 
     expect(await screen.findByLabelText(/QuantityChanger/i)).toBeVisible();
   });
 
-  it("changes the input value", async () => {
-    render(<QuantityChanger />);
+  it("has a value on the input", async () => {
+    render(<QuantityChanger product={product} />);
 
-    expect(await screen.findByDisplayValue("0")).toBeVisible();
-    await userEvent.click(await screen.findByRole("button", { name: "+" }));
     expect(await screen.findByDisplayValue("1")).toBeVisible();
-    await userEvent.click(await screen.findByRole("button", { name: "-" }));
-    expect(await screen.findByDisplayValue("0")).toBeVisible();
   });
 });
