@@ -1,6 +1,4 @@
-import { BASE_URL } from "../utilities/consts";
-
-export async function getProducts(params: string) {
-  const response = await fetch(`${BASE_URL}?${params}`);
+export async function getProducts(newURL: string, params: string) {
+  const response = await fetch(`${newURL}?${params}`);
   return await response.json();
 }
