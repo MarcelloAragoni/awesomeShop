@@ -7,21 +7,39 @@ import CartModal from "./components/CartModal/CartModal";
 import { CartProvider } from "./utilities/CartProvider";
 import { getProducts } from "./services/products";
 import { BASE_URL } from "./utilities/consts";
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
   const [modal, setModal] = useState(false);
   const [products, setProducts] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    getProducts(BASE_URL).then((products) => {
+    getProducts(BASE_URL, "").then((products) => {
       setProducts(products);
     });
   }, []);
 
   async function handleGetProductList(filterParams: string) {
-    const products = await getProducts(filterParams);
+    const productsList = await getProducts(BASE_URL, filterParams);
+
+    setProducts(productsList);
+  }
+
+  async function handlePageUp(value: number) {
+    const newUrl = BASE_URL.replace("_page=1", `_page=${value}`);
+    const productsList = await getProducts(newUrl, "");
+
+    setProducts(productsList);
+    setPageNumber(value);
+  }
+
+  async function handlePageDown(value: number) {
+    const newUrl = BASE_URL.replace("_page=1", `_page=${value}`);
+    const products = await getProducts(newUrl, "");
 
     setProducts(products);
+    setPageNumber(value);
   }
 
   function handleChange() {
@@ -39,6 +57,11 @@ function App() {
       </div>
       <div>
         <ProductGrid products={products} />
+        <Pagination
+          onPageUp={handlePageUp}
+          onPageDown={handlePageDown}
+          value={pageNumber}
+        />
       </div>
     </CartProvider>
   );

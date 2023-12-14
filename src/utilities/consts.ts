@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8000/products";
+export const BASE_URL = "http://localhost:8000/products?_page=1&_limit=6";
 
 export const DEFAULT_SORT = "name";
 export const DEFAULT_SORT_ORDER = "DESC";
