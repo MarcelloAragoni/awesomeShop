@@ -90,8 +90,8 @@ describe("Cart Products", () => {
       </CartProvider>,
     );
 
-    expect(await screen.findByText("Total: 190")).toBeInTheDocument();
+    expect(await screen.findByText("Total: R$: 190")).toBeInTheDocument();
     await userEvent.click(await screen.findByTestId("Add 1"));
-    expect(await screen.findByText("Total: 210")).toBeInTheDocument();
+    expect(await screen.findByText("Total: R$: 210")).toBeInTheDocument();
   });
 });

@@ -14,7 +14,7 @@ describe("Input Filter", () => {
     const onChangeMock = vi.fn();
     render(<Input value={"test 1"} onChange={onChangeMock} />);
 
-    await userEvent.type(await screen.findByLabelText(/Input/i), "test 2");
+    await userEvent.type(await screen.findByTestId(/Input/i), "test 2");
 
     expect(onChangeMock).toHaveBeenCalledTimes(6);
   });

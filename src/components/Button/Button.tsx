@@ -1,9 +1,10 @@
 import { ButtonProps } from "./types";
+import * as S from "./Button.styled";
 
 export default function Button({ children, onClick, testid }: ButtonProps) {
   return (
-    <button data-testid={testid} onClick={onClick}>
+    <S.Button data-testid={testid} onClick={onClick}>
       {children}
-    </button>
+    </S.Button>
   );
 }

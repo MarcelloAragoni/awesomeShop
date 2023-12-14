@@ -2,6 +2,7 @@
 import { useCartProducts } from "../../utilities/CartProvider";
 import Button from "../Button/Button";
 import QuantityChanger from "../QuantityChanger/QuantityChanger";
+import * as S from "./CartProducts.styled";
 
 export default function CartProducts() {
   const { cart, removeProduct } = useCartProducts();
@@ -16,25 +17,29 @@ export default function CartProducts() {
 
   return (
     <>
-      <ul aria-label="Cart List">
+      <S.CartList aria-label="Cart List">
         {cart.map((product) => (
-          <li key={product.id} aria-label="Cart Product">
+          <S.CartProducts key={product.id} aria-label="Cart Product">
             <img src={product.image} alt="" />
-            <p>{product.name}</p>
-            <span>{product.price}</span>
-            <QuantityChanger product={product} />
-            <Button
-              testid={"delete " + product.id}
-              type="button"
-              onClick={() => removeProduct(product)}
-            >
-              Remove
-            </Button>
-          </li>
+            <S.CartProductsDetails>
+              <p>{product.name}</p>
+              <span>R$: {product.price}</span>
+              <S.QuantityControl>
+                <QuantityChanger product={product} />
+                <Button
+                  testid={"delete " + product.id}
+                  type="button"
+                  onClick={() => removeProduct(product)}
+                >
+                  Remove
+                </Button>
+              </S.QuantityControl>
+            </S.CartProductsDetails>
+          </S.CartProducts>
         ))}
-      </ul>
+      </S.CartList>
 
-      <span>Total: {getProductCardTotal()}</span>
+      <S.TotalSpan>Total: R$: {getProductCardTotal()}</S.TotalSpan>
     </>
   );
 }

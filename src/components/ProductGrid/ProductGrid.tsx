@@ -1,4 +1,5 @@
 import Product from "../Product/Product";
+import * as S from "./ProductGrid.styled";
 
 export type Product = {
   id: number;
@@ -14,10 +15,10 @@ type Props = {
 
 export default function ProductGrid({ products }: Props) {
   return (
-    <div aria-label="Product Grid">
+    <S.ProductsGrid aria-label="Product Grid">
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
-    </div>
+    </S.ProductsGrid>
   );
 }
