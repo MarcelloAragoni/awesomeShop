@@ -4,12 +4,9 @@ import Button from "../Button/Button";
 import QuantityChanger from "../QuantityChanger/QuantityChanger";
 
 export default function CartProducts() {
-  const { cart } = useCartProducts();
+  const { cart, removeProduct } = useCartProducts();
   // const [quantity, setQuantity] = useState(1);
 
-  function handleDelete() {
-    console.log("delete");
-  }
   console.log(cart);
 
   return (
@@ -19,8 +16,8 @@ export default function CartProducts() {
           <img src={product.image} alt="" />
           <p>{product.name}</p>
           <span>{product.price}</span>
-          <QuantityChanger value={product.quantity} />
-          <Button type="button" onClick={handleDelete}>
+          <QuantityChanger product={product} />
+          <Button type="button" onClick={() => removeProduct(product)}>
             Remove
           </Button>
         </li>
