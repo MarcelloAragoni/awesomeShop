@@ -5,14 +5,6 @@ import userEvent from "@testing-library/user-event";
 
 export const products = [
   {
-    id: 1,
-    name: "Chronicles of the Silver Serpent",
-    price: 45.99,
-    category: "fiction",
-    image: "https://source.unsplash.com/random/800x600",
-    quantity: 1,
-  },
-  {
     id: 2,
     name: "Chronicles of the Silver Serpent",
     price: 45.99,
@@ -39,7 +31,7 @@ export const products = [
 ];
 
 describe("App", () => {
-  it.skip("Add a new product", async () => {
+  it("Add a new product", async () => {
     localStorage.setItem("cart", JSON.stringify(products));
 
     render(
@@ -48,6 +40,7 @@ describe("App", () => {
       </CartProvider>,
     );
 
+    await userEvent.click(await screen.findByTestId("new product 1"));
     await userEvent.click(await screen.findByTestId("cartButton"));
     expect(await screen.findAllByRole("listitem")).toHaveLength(4);
   });
