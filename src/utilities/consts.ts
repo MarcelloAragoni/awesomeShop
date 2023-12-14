@@ -10,25 +10,43 @@ export const sortParams = {
 
 export const CategoriesFilterOptions = [
   {
-    name: "books",
+    name: "science-fiction",
   },
   {
-    name: "food",
+    name: "biography",
   },
   {
-    name: "games",
+    name: "non-fiction",
+  },
+  {
+    name: "fiction",
   },
 ];
 
 export const PriceFilterOptions = [
   {
-    name: "10-20",
+    name: "20",
   },
   {
-    name: "20-30",
+    name: "25.5",
   },
   {
-    name: "30-40",
+    name: "32",
+  },
+  {
+    name: "45.99",
+  },
+  {
+    name: "79.99",
+  },
+  {
+    name: "99.99",
+  },
+  {
+    name: "120",
+  },
+  {
+    name: "200",
   },
 ];
 

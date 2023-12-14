@@ -19,6 +19,9 @@ export default function SelectInput({ label, options, onSelect }: Props) {
     <label>
       {label}
       <select name="selectedCategorie" onChange={handleSelectEvent}>
+        <option disabled selected>
+          Select Filter
+        </option>
         {options.map((option) => (
           <option key={option.name} value={option.name}>
             {option.name}
