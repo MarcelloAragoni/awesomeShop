@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Product from "./Product";
 
-const Products = {
+const product = {
   id: 1,
   name: "Whispers of Eternity",
   price: 20.0,
@@ -11,7 +11,7 @@ const Products = {
 
 describe("Product", () => {
   it("renders the product card", async () => {
-    render(<Product product={Products}></Product>);
+    render(<Product product={product}></Product>);
 
     expect(await screen.findByLabelText(/Product/i)).toBeVisible();
   });

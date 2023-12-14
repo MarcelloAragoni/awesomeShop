@@ -28,7 +28,11 @@ export default function Product({ product }: Props) {
         <div>
           <p>{product.name}</p>
           <span>{product.price}</span>
-          <Button type="button" onClick={() => handleAddButton(product)}>
+          <Button
+            testid={"new product " + product.id}
+            type="button"
+            onClick={() => handleAddButton(product)}
+          >
             Add
           </Button>
         </div>

@@ -12,6 +12,7 @@ export default function QuantityChanger({ product }: Props) {
   return (
     <div aria-label="QuantityChanger">
       <Button
+        testid={"remove " + product.id}
         aria-label="minus"
         type="button"
         onClick={() => removeQuantity(product)}
@@ -20,6 +21,7 @@ export default function QuantityChanger({ product }: Props) {
       </Button>
       <Input placeholder="1" value={product.quantity} onChange={() => {}} />
       <Button
+        testid={"Add " + product.id}
         aria-label="plus"
         type="button"
         onClick={() => addQuantity(product)}

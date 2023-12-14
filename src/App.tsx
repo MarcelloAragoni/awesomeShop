@@ -20,7 +20,7 @@ function App() {
 
   return (
     <CartProvider>
-      <Button onClick={handleChange} type="button">
+      <Button testid="cartButton" onClick={handleChange} type="button">
         Cart
       </Button>
       {modal && <CartModal onClose={handleChange} />}

@@ -1,5 +1,9 @@
 import { ButtonProps } from "./types";
 
-export default function Button({ children, onClick }: ButtonProps) {
-  return <button onClick={onClick}>{children}</button>;
+export default function Button({ children, onClick, testid }: ButtonProps) {
+  return (
+    <button data-testid={testid} onClick={onClick}>
+      {children}
+    </button>
+  );
 }

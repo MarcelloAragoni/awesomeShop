@@ -15,7 +15,11 @@ export default function CartProducts() {
           <p>{product.name}</p>
           <span>{product.price}</span>
           <QuantityChanger product={product} />
-          <Button type="button" onClick={() => removeProduct(product)}>
+          <Button
+            testid={"delete " + product.id}
+            type="button"
+            onClick={() => removeProduct(product)}
+          >
             Remove
           </Button>
         </li>
