@@ -24,8 +24,6 @@ export default function Pagination({
     onPageDown(value - 1);
   }
 
-  console.log(hasPrev, hasNext);
-
   return (
     <S.PaginationContainer aria-label="Pagination">
       <Button
