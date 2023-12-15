@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CartModal from "./components/CartModal/CartModal";
-import { CartProvider, useCartProducts } from "./utilities/CartProvider";
+import { CartProvider } from "./utilities/CartProvider";
 import { Data, getProducts } from "./services/products";
 import { BASE_URL } from "./utilities/consts";
 import Pagination from "./components/Pagination/Pagination";
