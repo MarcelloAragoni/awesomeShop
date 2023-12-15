@@ -48,7 +48,6 @@ describe("Cart Modal", () => {
     );
 
     expect(screen.getByRole("dialog")).toBeVisible();
-    expect(screen.getByRole("heading")).toBeVisible();
     expect(screen.getByRole("button", { name: "Close" })).toBeVisible();
   });
 

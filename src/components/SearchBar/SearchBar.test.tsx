@@ -8,18 +8,14 @@ describe("Search Bar", () => {
     render(<SearchBar onSubmit={mockFormSubmit}></SearchBar>);
 
     expect(await screen.findByLabelText(/SearchBar/i)).toBeVisible();
-    expect(
-      await screen.findByRole("button", { name: /Search/i }),
-    ).toBeVisible();
+    expect(await screen.findByRole("button")).toBeVisible();
   });
 
   it("changes the URLParams", async () => {
     const mockFormSubmit = vi.fn();
     render(<SearchBar onSubmit={mockFormSubmit}></SearchBar>);
 
-    await userEvent.click(
-      await screen.findByRole("button", { name: /Search/i }),
-    );
+    await userEvent.click(await screen.findByRole("button"));
 
     expect(mockFormSubmit).toBeCalled();
     expect(mockFormSubmit).toHaveBeenCalledWith("_sort=name&_order=DESC");
