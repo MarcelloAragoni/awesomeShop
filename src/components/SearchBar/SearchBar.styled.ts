@@ -8,4 +8,8 @@ export const SearchBar = styled.form`
   align-items: center;
   justify-content: space-between;
   gap: 15px;
+
+  .searchButton {
+    width: 50px;
+  }
 `;

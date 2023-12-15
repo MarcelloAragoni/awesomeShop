@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import * as S from "./SelectInput.styled";
 
 type FilterOptions = {
   name: string;
@@ -17,7 +18,7 @@ export default function SelectInput({ label, options, onSelect }: Props) {
 
   return (
     <div aria-label={label}>
-      <select name="selectedCategorie" onChange={handleSelectEvent}>
+      <S.Select name="selectedCategorie" onChange={handleSelectEvent}>
         <option disabled selected>
           Select Filter
         </option>
@@ -26,7 +27,7 @@ export default function SelectInput({ label, options, onSelect }: Props) {
             {option.name}
           </option>
         ))}
-      </select>
+      </S.Select>
     </div>
   );
 }

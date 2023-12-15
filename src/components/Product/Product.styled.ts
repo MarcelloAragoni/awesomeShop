@@ -10,6 +10,7 @@ export const ProductsContainer = styled.div`
 
   img {
     width: 250px;
+    border-radius: 5px;
   }
 `;
 

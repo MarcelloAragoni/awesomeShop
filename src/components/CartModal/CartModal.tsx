@@ -8,8 +8,6 @@ type Props = {
 export default function CartModal({ onClose }: Props) {
   return (
     <S.ModalBox role="dialog">
-      <h1>Cart</h1>
-
       <S.ModalContent>
         <CartProducts />
       </S.ModalContent>

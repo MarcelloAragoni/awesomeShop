@@ -18,6 +18,9 @@ export default function CartProducts() {
   return (
     <>
       <S.CartList aria-label="Cart List">
+        {cart.length === 0 && (
+          <p className="emptyCart">Your Cart is Empty =(</p>
+        )}
         {cart.map((product) => (
           <S.CartProducts key={product.id} aria-label="Cart Product">
             <img src={product.image} alt="" />

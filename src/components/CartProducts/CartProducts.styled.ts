@@ -3,8 +3,17 @@ import styled from "styled-components";
 export const CartList = styled.ul`
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 500px;
+  max-height: 500px;
   gap: 15px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .emptyCart {
+    align-self: center;
+  }
 `;
 
 export const CartProducts = styled.li`
@@ -16,6 +25,7 @@ export const CartProducts = styled.li`
 
   img {
     width: 110px;
+    border-radius: 5px;
   }
 `;
 

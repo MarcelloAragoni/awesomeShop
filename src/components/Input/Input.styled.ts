@@ -11,5 +11,7 @@ export const InputContainer = styled.div`
     position: relative;
     display: flex;
     justify-content: flex-start;
+    line-height: 20px;
+    padding-left: 5px;
   }
 `;

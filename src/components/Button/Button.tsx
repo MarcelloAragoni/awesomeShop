@@ -6,9 +6,15 @@ export default function Button({
   onClick,
   testid,
   disabled,
+  className,
 }: ButtonProps) {
   return (
-    <S.Button disabled={disabled} data-testid={testid} onClick={onClick}>
+    <S.Button
+      className={className}
+      disabled={disabled}
+      data-testid={testid}
+      onClick={onClick}
+    >
       {children}
     </S.Button>
   );

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ModalLayer = styled.div`
   position: fixed;
   inset: 0;
-  background-color: rgb(231 222 209 / 50%);
+  background-color: rgb(231 222 209 / 80%);
   z-index: -1;
   border: none;
 `;
@@ -24,8 +24,6 @@ export const ModalScreen = styled.div`
 `;
 
 export const ModalBox = styled.div`
-  min-width: 30rem;
-  min-height: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,6 +34,7 @@ export const ModalBox = styled.div`
   background-color: white;
   padding: 30px;
   border-radius: 15px;
+  border: 1px solid #ec6d75;
 
   .CloseButton {
     width: 200px;

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonSubmit = {
   type: "submit" | "reset";
@@ -13,7 +13,7 @@ type DefaultButton = {
 type ButtonPropsVariable = ButtonSubmit | DefaultButton;
 
 type Props = {
-  children: string;
+  children: ReactNode;
   testid?: string;
   disabled?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;

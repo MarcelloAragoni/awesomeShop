@@ -1,4 +1,7 @@
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+
 import { formatQueryParams } from "../../utilities/helper.ts";
 import Input from "../Input/Input";
 import Button from "../Button/Button.tsx";
@@ -61,7 +64,11 @@ export default function SearchBar({ onSubmit }: Props) {
   return (
     <S.SearchBarContainer aria-label="SearchBar">
       <S.SearchBar onSubmit={handleSubmit}>
-        <Input onChange={setSearchValue} value={searchValue} />
+        <Input
+          placeholder="Search"
+          onChange={setSearchValue}
+          value={searchValue}
+        />
         <SelectInput
           onSelect={handleCategorySelect}
           options={CategoriesFilterOptions}
@@ -72,7 +79,9 @@ export default function SearchBar({ onSubmit }: Props) {
           options={PriceFilterOptions}
           label="Price Range"
         />
-        <Button type="submit">Search</Button>
+        <Button className="searchButton" type="submit">
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        </Button>
       </S.SearchBar>
     </S.SearchBarContainer>
   );

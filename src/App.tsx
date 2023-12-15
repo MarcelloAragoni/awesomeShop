@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import Button from "./components/Button/Button";
+
 import ProductGrid from "./components/ProductGrid/ProductGrid";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CartModal from "./components/CartModal/CartModal";
-import { CartProvider } from "./utilities/CartProvider";
+import { CartProvider, useCartProducts } from "./utilities/CartProvider";
 import { Data, getProducts } from "./services/products";
 import { BASE_URL } from "./utilities/consts";
 import Pagination from "./components/Pagination/Pagination";
 import "../reset.css";
 import * as S from "./App.Styled";
+import CartButton from "./components/CartButton/CartButton";
 
 function App() {
   const [modal, setModal] = useState(false);
@@ -55,11 +56,10 @@ function App() {
     <CartProvider>
       <S.AppContainer>
         <S.NavBar>
-          <Button testid="cartButton" onClick={handleChange} type="button">
-            Cart
-          </Button>
+          <h1>Awesome Shop</h1>
           {modal && <CartModal onClose={handleChange} />}
           <SearchBar onSubmit={handleGetProductList} />
+          <CartButton onChange={handleChange}></CartButton>
         </S.NavBar>
         <S.ProductsContainer>
           <ProductGrid products={products?.products} />
