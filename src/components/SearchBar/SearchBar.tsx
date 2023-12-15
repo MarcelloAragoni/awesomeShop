@@ -22,7 +22,7 @@ export default function SearchBar({ onSubmit }: Props) {
     event.preventDefault();
 
     const filterParams = [
-      { name: "name", value: searchValue },
+      { name: "name_like", value: searchValue },
       { name: "category", value: categoryValue },
       { name: "price", value: priceValue },
     ];
@@ -36,7 +36,7 @@ export default function SearchBar({ onSubmit }: Props) {
     setCategoryValue(category);
 
     const filterParams = [
-      { name: "name", value: searchValue },
+      { name: "name_like", value: searchValue },
       { name: "category", value: category },
       { name: "price", value: priceValue },
     ];
@@ -49,7 +49,7 @@ export default function SearchBar({ onSubmit }: Props) {
     setPriceValue(price);
 
     const filterParams = [
-      { name: "name", value: searchValue },
+      { name: "name_like", value: searchValue },
       { name: "category", value: categoryValue },
       { name: "price", value: price },
     ];

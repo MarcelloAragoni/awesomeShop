@@ -15,6 +15,7 @@ type ButtonPropsVariable = ButtonSubmit | DefaultButton;
 type Props = {
   children: string;
   testid?: string;
+  disabled?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = Props & ButtonPropsVariable;

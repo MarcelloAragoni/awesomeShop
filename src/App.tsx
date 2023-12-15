@@ -4,7 +4,7 @@ import ProductGrid from "./components/ProductGrid/ProductGrid";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CartModal from "./components/CartModal/CartModal";
 import { CartProvider } from "./utilities/CartProvider";
-import { getProducts } from "./services/products";
+import { Data, getProducts } from "./services/products";
 import { BASE_URL } from "./utilities/consts";
 import Pagination from "./components/Pagination/Pagination";
 import "../reset.css";
@@ -12,7 +12,11 @@ import * as S from "./App.Styled";
 
 function App() {
   const [modal, setModal] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Data>({
+    products: [],
+    hasPrev: false,
+    hasNext: false,
+  });
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
@@ -58,8 +62,10 @@ function App() {
           <SearchBar onSubmit={handleGetProductList} />
         </S.NavBar>
         <S.ProductsContainer>
-          <ProductGrid products={products} />
+          <ProductGrid products={products?.products} />
           <Pagination
+            hasNext={products?.hasNext}
+            hasPrev={products?.hasPrev}
             onPageUp={handlePageUp}
             onPageDown={handlePageDown}
             value={pageNumber}

@@ -10,4 +10,8 @@ export const Button = styled.button`
   border-radius: 15px;
   background-color: #ec6d75;
   color: #f7f4fa;
+
+  &:disabled {
+    opacity: 50%;
+  }
 `;
